@@ -1,0 +1,3 @@
+include ':BugLog'
+include ':app'
+rootProject.name = "CrashMonitor"
