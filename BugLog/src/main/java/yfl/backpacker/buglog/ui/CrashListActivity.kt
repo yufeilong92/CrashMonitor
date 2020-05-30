@@ -7,6 +7,7 @@ import android.graphics.Color
 import android.os.Bundle
 import android.os.Handler
 import android.view.View
+import androidx.recyclerview.widget.GridLayoutManager
 import kotlinx.android.synthetic.main.activity_crash_list.*
 import yfl.backpacker.buglog.R
 import yfl.backpacker.buglog.listener.MOnItemClickListener
@@ -121,6 +122,8 @@ class CrashListActivity : CrashBaseActivity() {
     private fun initAdapter() {
         if (crashInfoAdapter == null) {
             crashInfoAdapter = CrashInfoAdapter(context, fileList)
+            val gl=GridLayoutManager(context,1)
+            recycleView.layoutManager=gl
             recycleView.setAdapter(crashInfoAdapter)
             crashInfoAdapter?.setOnItemClickLitener(object : MOnItemClickListener {
                 override  fun onItemClick(view: View?, position: Int) {
@@ -159,6 +162,7 @@ class CrashListActivity : CrashBaseActivity() {
             })
         } else {
             crashInfoAdapter?.updateDatas(fileList)
+            crashInfoAdapter?.notifyDataSetChanged()
         }
         swipeRefreshLayout.isRefreshing = false
     }

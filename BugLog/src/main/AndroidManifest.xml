@@ -5,11 +5,23 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application>
-        <activity android:name=".ui.CrashShowActivity"></activity>
-        <activity android:name=".ui.CrashListActivity" />
-        <activity android:name=".ui.CrashDetailsActivity" />
-        <activity android:name=".ui.CrashBaseActivity" />
-
+        <activity android:name=".ui.CrashShowActivity"
+            android:theme="@style/MCrashAppTheme"/>
+        <activity android:name=".ui.CrashListActivity"
+            android:theme="@style/MCrashAppTheme"/>
+        <activity android:name=".ui.CrashDetailsActivity"
+            android:theme="@style/MCrashAppTheme"/>
+        <activity android:name=".ui.CrashBaseActivity"
+            android:theme="@style/MCrashAppTheme"/>
+        <provider
+            android:name=".utils.MCrashFileProvider"
+            android:authorities="${applicationId}.crashFileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/m_crash_file_provider" />
+        </provider>
     </application>
 
 </manifest>

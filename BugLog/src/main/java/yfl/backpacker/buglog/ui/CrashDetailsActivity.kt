@@ -71,7 +71,6 @@ class CrashDetailsActivity : CrashBaseActivity() {
     private fun initTryCatrah(){
         try {
             initIntent()
-            initView()
             initDatas()
             initListener()
         } catch (e: Exception) {
@@ -126,11 +125,6 @@ class CrashDetailsActivity : CrashBaseActivity() {
 
     private fun initIntent() {
         filePath = intent.getStringExtra(IntentKey_FilePath)
-    }
-
-    private fun initView() {
-
-
     }
 
     private fun initDatas() {
